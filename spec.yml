@@ -1,0 +1,94 @@
+openapi: '3.0.2'
+info:
+  title: Snake
+  version: '1.0'
+servers:
+  - url: http://localhost:3000/v1
+tags:
+  - name: User
+components:
+  schemas:
+    user:
+      type: object
+      properties:
+        id:
+          type: integer
+        username:
+          type: string
+        fullname:
+          type: string
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+          format: password
+
+paths:
+  /users:
+    get:
+      summary: Obtiene el listado de usuarios
+      description: obtener usuarios del la aplicacion Snake
+      operationId: getUsers
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items: 
+                  $ref: "#/components/schemas/user"
+      tags:
+        - "User"
+  /users/{id}:
+    get:
+      tags:
+        - "User"
+      summary: Obtiene un usuario por ID
+      description: obtener un usuario del la aplicacion Snake
+      operationId: getUserById
+      parameters:
+        - name: id
+          in: path
+          description: User ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/user'
+  /users/create:
+    post:
+      tags:
+        - "User"
+      summary: Create a user.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:      # Request body contents
+              type: object
+              properties:            
+                username:
+                  type: string
+                fullname:
+                  type: string
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+                  format: password              
+      responses:
+         '200':
+          description: created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/user'
