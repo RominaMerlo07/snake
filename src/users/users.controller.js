@@ -1,31 +1,101 @@
 const userService = require('./users.service');
 
-const getUsers = () => {
+/* const getUsers = () => {
     return userService.getUsers();
-}
-
-const getUsersById = (id) => {
+};
+ */
+/* const getUsersById = (id) => {
     const nroId = parseInt(id);
     return userService.getUserById(nroId);
-}
+}; */
 
-const createUser = (username, fullname, email, password) => {
+
+const getUsers = (req, res) => {
+
+    try {
+        let users = userService.getUsers();
+        res.status(200);
+        res.send(users);
+
+    } catch (error) {
+        console.error(error);
+        res.sendStatus(500);
+    }
+};
+
+
+const getUsersById = (req, res) => {
+
+    try {
+        const nroId = parseInt(req.params.id);
+        let user = userService.getUserById(nroId);
+        res.status(200);
+        res.send(user);
+
+    } catch (error) {
+        console.error(error);
+        res.sendStatus(500);
+    }
+};
+
+/* const createUser = (usuario) => {
     //validar que tengan algo 
+    return userService.createUser(usuario);
+}; */
+
+const createUser = (req, res) => {
+
+    try {
+        //  const { username, fullname, email, password } = req.body;
+        const usuario = req.body;
+        //  let user = userControllers.createUser(username, fullname, email, password);
+        let user = userService.createUser(usuario);
+
+        res.status(200);
+        res.send(user);
+
+    } catch (error) {
+        console.error(error);
+        res.sendStatus(500);
+    }
+};
 
 
-    return userService.createUser(username, fullname, email, password);
-    //   const username = req.body.username;
-    //   console.log(username);
-    //   const fullname = req.body.fullname;
-    //   const email = req.body.email;
-    //   const password = req.body.password;
+const updateUser = (req, res) => {
 
-    //const { username, fullname, email, password } = req.body;   
-}
+    try {
+        const id = parseInt(req.params.id);
+        const usuario = req.body;
+        let user = userService.updateUser(id, usuario);
 
+        res.status(200);
+        res.send(user);
+
+    } catch (error) {
+        console.error(error);
+        res.sendStatus(500);
+    }
+};
+
+
+const deleteUser = (req, res) => {
+
+    try {
+        const id = parseInt(req.params.id);
+        let user = userService.deleteUser(id);
+        res.status(200);
+        res.send(user);
+
+    } catch (error) {
+        console.error(error);
+        res.sendStatus(500);
+    }
+};
 
 module.exports = {
     getUsers,
     getUsersById,
-    createUser
+    createUser,
+    updateUser,
+    deleteUser
 };

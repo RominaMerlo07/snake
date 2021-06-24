@@ -74,7 +74,7 @@ paths:
           application/json:
             schema:      # Request body contents
               type: object
-              properties:            
+              properties:                     
                 username:
                   type: string
                 fullname:
@@ -88,6 +88,65 @@ paths:
       responses:
          '200':
           description: created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/user'
+  /users/updateUser/{id}:
+    put:
+      tags:
+        - "User"
+      summary: Update a user
+      description: Actualiza los datos de un usuario de la aplicacion snake 
+      parameters:
+        - name: id
+          in: path
+          description: User ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:      # Request body contents
+              type: object
+              properties:                              
+                username:
+                  type: string
+                fullname:
+                  type: string
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+                  format: password              
+      responses:
+         '200':
+          description: updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/user'
+  /users/deleteUser/{id}:
+    delete:
+      tags:
+        - "User"
+      summary: Delete a user
+      description: Elimina un usuario de la aplicacion snake 
+      parameters:
+        - name: id
+          in: path
+          description: User ID
+          required: true
+          schema:
+            type: integer
+            format: int64                  
+      responses:
+         '200':
+          description: deleted
           content:
             application/json:
               schema:

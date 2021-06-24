@@ -4,7 +4,14 @@ const router = express.Router();
 const userControllers = require('./users.controller');
 
 
-router.get('/', (req, res) => {
+router.get('/', userControllers.getUsers);
+router.get('/:id', userControllers.getUsersById);
+router.post('/create', userControllers.createUser);
+router.put('/updateUser/:id', userControllers.updateUser);
+router.delete('/deleteUser/:id', userControllers.deleteUser);
+
+
+/* router.get('/', (req, res) => {
 
     try {
         let users = userControllers.getUsers();
@@ -16,9 +23,9 @@ router.get('/', (req, res) => {
         res.sendStatus(500);
     }
 
-});
+}); */
 
-router.get('/:id', (req, res) => {
+/* router.get('/:id', (req, res) => {
 
     try {
         let user = userControllers.getUsersById(req.params.id);
@@ -31,13 +38,16 @@ router.get('/:id', (req, res) => {
         res.sendStatus(500);
     }
 
-});
+}); */
 
-router.post('/create', (req, res) => {
+/* router.post('/create', (req, res) => {
 
     try {
-        const { username, fullname, email, password } = req.body;
-        let user = userControllers.createUser(username, fullname, email, password);
+        //  const { username, fullname, email, password } = req.body;
+        const usuario = req.body;
+        //  let user = userControllers.createUser(username, fullname, email, password);
+        let user = userControllers.createUser(usuario);
+
         res.status(200);
         res.send(user);
 
@@ -45,7 +55,6 @@ router.post('/create', (req, res) => {
         console.error(error);
         res.sendStatus(500);
     }
-
-});
+}); */
 
 module.exports = router;

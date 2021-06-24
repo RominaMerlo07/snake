@@ -12,13 +12,13 @@ let users = [{
         email: 'aojeda@claro.com.ar',
         password: '12366'
     }
-]
+];
 
 const getUsers = () => {
     return users;
-}
+};
 
-const getUserById = (id, res) => {
+const getUserById = (id) => {
     users = getUsers();
     const usuario = users.find((t) => t.id === id);
 
@@ -27,27 +27,61 @@ const getUserById = (id, res) => {
     } else {
         return `El usuario id: ${id} no existe`;
     }
-}
+};
 
 
-const createUser = (username, fullname, email, password) => {
+const createUser = (usuario) => {
 
-    const usuario = {
+    const { username, fullname, email, password } = usuario;
+
+    const user = {
         id: Math.floor(Math.random() * 1000),
         username,
         fullname,
         email,
         password
-    };
+    }
 
-    users.push(usuario);
+    users.push(user);
 
-    return usuario;
+    return user;
 
 };
+
+
+const updateUser = (id, usuario) => {
+
+    const { username, fullname, email, password } = usuario;
+    const idx = users.findIndex((p) => p.id === id);
+
+    if (idx >= 0) {
+        users[idx].username = username || users[idx].username;
+        users[idx].fullname = fullname || users[idx].fullname;
+        users[idx].email = email || users[idx].email;
+        users[idx].password = password || users[idx].password;
+        /*TODO LO ANTERIOR SE PUEDE SIMPLICAR CON LA SIGUIENTE LINEA 
+          USANDO EL SPREAD: */
+        /* users[idx] = {...users[idx], username, fullname, email, password }; */
+        return users[idx];
+    } else {
+        return `El usuario id: ${id} no existe`;
+    }
+};
+
+const deleteUser = (id) => {
+    const idx = users.findIndex((p) => p.id === id);
+    if (idx >= 0) {
+        const user = users.splice(idx, 1)[0];
+        return user;
+    } else {
+        return `El usuario id: ${id} no existe`;
+    }
+}
 
 module.exports = {
     getUsers,
     getUserById,
-    createUser
+    createUser,
+    updateUser,
+    deleteUser
 };
