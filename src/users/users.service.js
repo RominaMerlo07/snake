@@ -54,6 +54,7 @@ const updateUser = (id, usuario) => {
     const { username, fullname, email, password } = usuario;
     const idx = users.findIndex((p) => p.id === id);
 
+
     if (idx >= 0) {
         users[idx].username = username || users[idx].username;
         users[idx].fullname = fullname || users[idx].fullname;
@@ -61,7 +62,7 @@ const updateUser = (id, usuario) => {
         users[idx].password = password || users[idx].password;
         /*TODO LO ANTERIOR SE PUEDE SIMPLICAR CON LA SIGUIENTE LINEA 
           USANDO EL SPREAD: */
-        /* users[idx] = {...users[idx], username, fullname, email, password }; */
+        /*  users[idx] = {...users[idx], username, fullname, email, password }; */
         return users[idx];
     } else {
         return `El usuario id: ${id} no existe`;
@@ -71,6 +72,7 @@ const updateUser = (id, usuario) => {
 const deleteUser = (id) => {
     const idx = users.findIndex((p) => p.id === id);
     if (idx >= 0) {
+        // users.splice(idx, 1);
         const user = users.splice(idx, 1)[0];
         return user;
     } else {
