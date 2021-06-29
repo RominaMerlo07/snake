@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #1c2e02;
+}
+
+#container {
+  display: -ms-grid;
+  display: grid;
+  height: 950px;
+  width: 1000px;
+  -ms-grid-rows: (1fr)[8];
+  -ms-grid-columns: (1fr)[9];
+      grid-template: repeat(8, 1fr)/repeat(9, 1fr);
+  background-color: green;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#container .casillero {
+  padding: 45%;
+  text-align: center;
+}
+
+#container .casillero:nth-child(odd) {
+  background-color: greenyellow;
+}
+
+#container .casillero:nth-child(even) {
+  background-color: #3b4e1e;
+}
+
+#container .casillero.headSnake {
+  background-color: goldenrod;
+}
+
+#container .casillero.bodySnake {
+  background-color: grey;
+}
+
+#container .casillero.food {
+  background-color: red;
+}
+/*# sourceMappingURL=style.css.map */

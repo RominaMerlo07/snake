@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: rgb(28, 46, 2);
+}
+
+#container{
+    display: grid;
+    //padding: 20px;
+    height: 950px;
+    width: 1000px;
+    grid-template: repeat(8,1fr) / repeat(9,1fr);
+    background-color: green;
+    justify-content: center;
+    align-items: center;
+    .casillero{
+        padding: 45%;
+        //color: transparent;
+        text-align: center;
+        &:nth-child(odd){
+            background-color: greenyellow;
+        }
+        &:nth-child(even){
+            background-color: rgb(59, 78, 30);
+        }
+        &.headSnake{
+            background-color: goldenrod;
+        }
+        &.bodySnake{
+            background-color: grey;
+        }
+        &.food{
+            background-color: red;
+        }
+    }
+}
+

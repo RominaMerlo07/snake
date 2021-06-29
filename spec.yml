@@ -23,7 +23,6 @@ components:
         password:
           type: string
           format: password
-
 paths:
   /users:
     get:
@@ -107,7 +106,7 @@ paths:
             type: integer
             format: int64
       requestBody:
-        required: true
+        required: false
         content:
           application/json:
             schema:      # Request body contents
