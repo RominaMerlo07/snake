@@ -1,88 +1,223 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
-    <title>Document</title>
+    <script src="https://kit.fontawesome.com/6c7501cde9.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
+    <script defer src="js/style.js"></script>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+    <title>Snake-FRS</title>
 </head>
+
 <body>
-    <div id="container">
-        <div class="casillero">0</div>
-        <div class="casillero">1</div>
-        <div class="casillero">2</div>
-        <div class="casillero">3</div>
-        <div class="casillero">4</div>
-        <div class="casillero">5</div>
-        <div class="casillero">6</div>
-        <div class="casillero">7</div>
-        <div class="casillero">8</div>
-        <div class="casillero">9</div>
-        <div class="casillero">10</div>
-        <div class="casillero">11</div>
-        <div class="casillero">12</div>
-        <div class="casillero">13</div>
-        <div class="casillero">14</div>
-        <div class="casillero">15</div>
-        <div class="casillero">16</div>
-        <div class="casillero">17</div>
-        <div class="casillero">18</div>
-        <div class="casillero">19</div>
-        <div class="casillero">20</div>
-        <div class="casillero">21</div>
-        <div class="casillero">22</div>
-        <div class="casillero">23</div>
-        <div class="casillero">24</div>
-        <div class="casillero">25</div>
-        <div class="casillero">26</div>
-        <div class="casillero">27</div>
-        <div class="casillero">28</div>
-        <div class="casillero">29</div>
-        <div class="casillero">30</div>
-        <div class="casillero">31</div>
-        <div class="casillero">32</div>
-        <div class="casillero">33</div>
-        <div class="casillero">34</div>
-        <div class="casillero">35</div>
-        <div class="casillero">36</div>
-        <div class="casillero">37</div>
-        <div class="casillero">38</div>
-        <div class="casillero">39</div>
-        <div class="casillero">40</div>
-        <div class="casillero">41</div>
-        <div class="casillero">42</div>
-        <div class="casillero">43</div>
-        <div class="casillero">44</div>
-        <div class="casillero">45</div>
-        <div class="casillero">46</div>
-        <div class="casillero">47</div>
-        <div class="casillero">48</div>
-        <div class="casillero">49</div>
-        <div class="casillero">50</div>
-        <div class="casillero">51</div>
-        <div class="casillero">52</div>
-        <div class="casillero">53</div>
-        <div class="casillero">54</div>
-        <div class="casillero">55</div>
-        <div class="casillero">56</div>
-        <div class="casillero">57</div>
-        <div class="casillero">58</div>
-        <div class="casillero">59</div>
-        <div class="casillero">60</div>
-        <div class="casillero">61</div>
-        <div class="casillero">62</div>
-        <div class="casillero">63</div>
-        <div class="casillero">64</div>
-        <div class="casillero">65</div>
-        <div class="casillero">66</div>
-        <div class="casillero">67</div>
-        <div class="casillero">68</div>
-        <div class="casillero">69</div>
-        <div class="casillero">70</div>
-        <div class="casillero">71</div>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">
+                <img src="img/logo.png" alt="FRM-SNAKE">
+            </a>
+            <button class="nav-toggle" aria-label="Abrir Menú">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="menu">
+                <button class="close-menu" aria-label="Cerrar Menú">
+                    <i class="fas fa-times"></i>
+                </button>
+                <li>PUNTAJE
+                    <input class="score" style="text-align: center;" type="text" value="0" disabled>
+                </li>
+                <li>
+                    <button class="btnUsuarios"><i class="fas fa-users"></i> USUARIOS</button>
+                </li>
+                <li>
+                    <button class="btnUsuarioNuevo" id="create-user"><i class="fas fa-user-plus"></i> CREAR USUARIO</button>
+                </li>
+                <li>
+                    <button class="btnLogin" id="login"><i class="fas fa-sign-in-alt"></i> LOGIN</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container-flex">
+        <div id="container">
+            <div class="casillero">0</div>
+            <div class="casillero">1</div>
+            <div class="casillero">2</div>
+            <div class="casillero">3</div>
+            <div class="casillero">4</div>
+            <div class="casillero">5</div>
+            <div class="casillero">6</div>
+            <div class="casillero">7</div>
+            <div class="casillero">8</div>
+            <div class="casillero">9</div>
+            <div class="casillero">10</div>
+            <div class="casillero">11</div>
+            <div class="casillero">12</div>
+            <div class="casillero">13</div>
+            <div class="casillero">14</div>
+            <div class="casillero">15</div>
+            <div class="casillero">16</div>
+            <div class="casillero">17</div>
+            <div class="casillero">18</div>
+            <div class="casillero">19</div>
+            <div class="casillero">20</div>
+            <div class="casillero">21</div>
+            <div class="casillero">22</div>
+            <div class="casillero">23</div>
+            <div class="casillero">24</div>
+            <div class="casillero">25</div>
+            <div class="casillero">26</div>
+            <div class="casillero">27</div>
+            <div class="casillero">28</div>
+            <div class="casillero">29</div>
+            <div class="casillero">30</div>
+            <div class="casillero">31</div>
+            <div class="casillero">32</div>
+            <div class="casillero">33</div>
+            <div class="casillero">34</div>
+            <div class="casillero">35</div>
+            <div class="casillero">36</div>
+            <div class="casillero">37</div>
+            <div class="casillero">38</div>
+            <div class="casillero">39</div>
+            <div class="casillero">40</div>
+            <div class="casillero">41</div>
+            <div class="casillero">42</div>
+            <div class="casillero">43</div>
+            <div class="casillero">44</div>
+            <div class="casillero">45</div>
+            <div class="casillero">46</div>
+            <div class="casillero">47</div>
+            <div class="casillero">48</div>
+            <div class="casillero">49</div>
+            <div class="casillero">50</div>
+            <div class="casillero">51</div>
+            <div class="casillero">52</div>
+            <div class="casillero">53</div>
+            <div class="casillero">54</div>
+            <div class="casillero">55</div>
+            <div class="casillero">56</div>
+            <div class="casillero">57</div>
+            <div class="casillero">58</div>
+            <div class="casillero">59</div>
+            <div class="casillero">60</div>
+            <div class="casillero">61</div>
+            <div class="casillero">62</div>
+            <div class="casillero">63</div>
+            <div class="casillero">64</div>
+            <div class="casillero">65</div>
+            <div class="casillero">66</div>
+            <div class="casillero">67</div>
+            <div class="casillero">68</div>
+            <div class="casillero">69</div>
+            <div class="casillero">70</div>
+            <div class="casillero">71</div>
+        </div>
     </div>
 
-    <script src="./main.js"></script>
+    <div class="container-modal">
+        <div class="modal">
+            <div class="modal-title">
+                <h2>SNAKE FRS</h2>
+                <br/>
+            </div>
+            <div class="modal-login">
+                <div class="line"></div>
+                <i class="far fa-times-circle" id="close"></i>
+                <div class="modal-content">
+
+                    <h2><i class="far fa-user-circle"></i></h2>
+                    <form action="">
+                        <label for="name" style="color:black">USUARIO</label>
+                        <br/>
+                        <br/>
+                        <input type="text" name="username" id="username" placeholder="Ingresa tu usuario" class="text ui-widget-content ui-corner-all">
+                        <br/>
+                        <br/>
+                        <label for="password" style="color:black">CONTRASEÑA</label>
+                        <br/>
+                        <br/>
+                        <input type="password" name="password" id="password" placeholder="xxxxxxx" class="text ui-widget-content ui-corner-all">
+                        <br/>
+                        <br/>
+                        <button class="sesion" type="submit" id="ingresar">INGRESAR</button>
+                    </form>
+                </div>
+                <div class="line"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--  <div class="modal-container" id="dialog-form" title="CREAR NUEVO USUARIO" style="text-align: center;">
+        <div class="modal">
+            <p>
+                <b>Todos los datos son requeridos</b> </p>
+            <br/>
+            <form>
+                <fieldset>
+                    <label class="lbl" for="name">NOMBRE</label>
+                    <input type="text" name="name" id="name" placeholder="Romina Merlo" class="text ui-widget-content ui-corner-all">
+                    <label class="lbl" for="name">USUARIO</label>
+                    <input type="text" name="user" id="user" placeholder="rmerlo" class="text ui-widget-content ui-corner-all">
+                    <label class="lbl" for="email">EMAIL</label>
+                    <input type="text" name="email" id="email" placeholder="rmerlo@gmail.com" class="text ui-widget-content ui-corner-all">
+                    <label class="lbl" for="password">CONTRASEÑA</label>
+                    <input type="password" name="password" id="password" placeholder="xxxxxxx" class="text ui-widget-content ui-corner-all">
+
+                     Allow form submission with keyboard without duplicating the dialog button 
+                    <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+                </fieldset>
+            </form>
+        </div>
+    </div> -->
+
+
+    <!-- 
+        <div class="main-container">
+            <div id="users-contain" class="ui-widget">
+                <h1>Usuarios Registrados:</h1>
+                <table id="users" class="ui-widget ui-widget-content">
+                    <thead>
+                        <tr class="ui-widget-header ">
+                            <th>NOMBRE</th>
+                            <th>USUARIO</th>
+                            <th>EMAIL</th>
+                            <th>CONTRASEÑA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>John Doe</td>
+                            <td>JohnDoe_8</td>
+                            <td>john.doe@example.com</td>
+                            <td>johndoe1</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <button class="btnUser" id="create-user">Create new user</button>
+        </div> -->
+
+
+
+
+    <!--  <footer>
+        <p>footer</p>
+    </footer> -->
+
+    <script src="js/main.js"></script>
+    <script src="jquery/jquery.js"></script>
 </body>
+
 </html>
