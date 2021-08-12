@@ -16,11 +16,15 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+    <script src="assets/sweet/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="assets/sweet/sweetalert2.css">
+
 
     <title>Snake-FRS</title>
 </head>
 
 <body>
+    <!-- Barra de Navegacion -->
     <header class="header">
         <nav class="nav">
             <a href="index.html" class="logo">
@@ -34,10 +38,10 @@
                     <i class="fas fa-times"></i>
                 </button>
                 <li>PUNTAJE
-                    <input class="score" style="text-align: center;" type="text" value="0" disabled>
+                    <input id="puntaje" class="score" style="text-align: center;" type="text" value="0" disabled>
                 </li>
                 <li>
-                    <button class="btnUsuarios"><i class="fas fa-users"></i> USUARIOS</button>
+                    <button class="btnUsuarios" id="btnUsuarios"><i class="fas fa-users"></i> USUARIOS</button>
                 </li>
                 <li>
                     <button class="btnUsuarioNuevo" id="create-user"><i class="fas fa-user-plus"></i> CREAR USUARIO</button>
@@ -48,6 +52,8 @@
             </ul>
         </nav>
     </header>
+
+    <!-- Juego Snake -->
     <div class="container-flex">
         <div id="container">
             <div class="casillero">0</div>
@@ -125,6 +131,7 @@
         </div>
     </div>
 
+    <!-- Modal Login -->
     <div class="container-modal">
         <div class="modal">
             <div class="modal-title">
@@ -135,19 +142,18 @@
                 <div class="line"></div>
                 <i class="far fa-times-circle" id="close"></i>
                 <div class="modal-content">
-
                     <h2><i class="far fa-user-circle"></i></h2>
                     <form action="">
                         <label for="name" style="color:black">USUARIO</label>
                         <br/>
                         <br/>
-                        <input type="text" name="username" id="username" placeholder="Ingresa tu usuario" class="text ui-widget-content ui-corner-all">
+                        <input type="text" name="username" id="username" placeholder="Ingresa tu usuario" required>
                         <br/>
                         <br/>
                         <label for="password" style="color:black">CONTRASEÑA</label>
                         <br/>
                         <br/>
-                        <input type="password" name="password" id="password" placeholder="xxxxxxx" class="text ui-widget-content ui-corner-all">
+                        <input type="password" name="password" id="password" placeholder="xxxxxxx" required>
                         <br/>
                         <br/>
                         <button class="sesion" type="submit" id="ingresar">INGRESAR</button>
@@ -158,66 +164,116 @@
         </div>
     </div>
 
-    <!--  <div class="modal-container" id="dialog-form" title="CREAR NUEVO USUARIO" style="text-align: center;">
-        <div class="modal">
-            <p>
-                <b>Todos los datos son requeridos</b> </p>
-            <br/>
-            <form>
-                <fieldset>
-                    <label class="lbl" for="name">NOMBRE</label>
-                    <input type="text" name="name" id="name" placeholder="Romina Merlo" class="text ui-widget-content ui-corner-all">
-                    <label class="lbl" for="name">USUARIO</label>
-                    <input type="text" name="user" id="user" placeholder="rmerlo" class="text ui-widget-content ui-corner-all">
-                    <label class="lbl" for="email">EMAIL</label>
-                    <input type="text" name="email" id="email" placeholder="rmerlo@gmail.com" class="text ui-widget-content ui-corner-all">
-                    <label class="lbl" for="password">CONTRASEÑA</label>
-                    <input type="password" name="password" id="password" placeholder="xxxxxxx" class="text ui-widget-content ui-corner-all">
+    <!-- Modal crear usuario -->
+    <div class="container-usuario">
+        <div class="mod-usuario">
+            <div class="modal-Usuario">
+                <div class="line-user"></div>
+                <i class="far fa-times-circle" id="closeUsuario"></i>
+                <div class="modal-content-user">
+                    <h2><i class="fas fa-user-plus"></i></h2>
+                    <form class="formularioUser" id="formularioUser" action="">
+                        <!-- Grupo: Nombre -->
+                        <div class="formulario__grupo" id="grupo__nombre">
+                            <label for="nombre" class="formulario__label">NOMBRE</label>
+                            <div class="formulario__grupo-input">
+                                <input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="Ingresa tu nombre">
+                                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            </div>
+                            <p class="formulario__input-error">Por favor ingresa tu nombre completo</p>
+                        </div>
+                        <!-- Grupo: Email -->
+                        <div class="formulario__grupo" id="grupo__email">
+                            <label for="email" class="formulario__label">EMAIL</label>
+                            <div class="formulario__grupo-input">
+                                <input type="email" class="formulario__input" name="email" id="email" placeholder="Ingresa tu email">
+                                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            </div>
+                            <p class="formulario__input-error">El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>
+                        </div>
+                        <!-- Grupo: Usuario -->
+                        <div class="formulario__grupo" id="grupo__usuario">
+                            <label for="usuario" class="formulario__label">USUARIO</label>
+                            <div class="formulario__grupo-input">
+                                <input type="text" class="formulario__input" name="usuario" id="usuario" placeholder="Ingresa un usuario. Ejemplo: adri28">
+                                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            </div>
+                            <p class="formulario__input-error">El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
+                        </div>
+                        <!-- Grupo: Contraseña -->
+                        <div class="formulario__grupo" id="grupo__contrasenia">
+                            <label for="contrasenia" class="formulario__label">CONTRASEÑA</label>
+                            <div class="formulario__grupo-input">
+                                <input type="password" class="formulario__input" name="contrasenia" id="contrasenia">
+                                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            </div>
+                            <p class="formulario__input-error">La contraseña tiene que ser de 4 a 12 dígitos.</p>
+                        </div>
+                        <div class="formulario__mensaje" id="formulario__mensaje">
+                            <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente. </p>
+                        </div>
+                        <br/>
+                        <div class="formulario__grupo formulario__grupo-btn-enviar">
+                            <button type="submit" class="registrarUsuario" id="registrar">REGISTRAR</button>
+                        </div>
 
-                     Allow form submission with keyboard without duplicating the dialog button 
-                    <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
-                </fieldset>
-            </form>
+                    </form>
+                    <!--   <br/>
+                    <button class="registrarUsuario" type="submit" id="registrar">CREAR USUARIO</button>
+                    <br/>
+                    <br/> -->
+                </div>
+                <div class="line-user"></div>
+            </div>
         </div>
-    </div> -->
+    </div>
 
-
-    <!-- 
-        <div class="main-container">
-            <div id="users-contain" class="ui-widget">
-                <h1>Usuarios Registrados:</h1>
-                <table id="users" class="ui-widget ui-widget-content">
+    <!-- Modal todos los usuarioS -->
+    <div class="container-usuarios">
+        <div class="usuarios">
+            <div class="line"></div>
+            <i class="far fa-times-circle" id="closeUsuarios"></i>
+            <div class="search">
+                <label class="searchText">Buscar:</label>
+                <input type="text" id="searchText1" class="searchBox" placeholder="Ingrese un valor">
+            </div>
+            <div class="tabla">
+                <table>
                     <thead>
-                        <tr class="ui-widget-header ">
-                            <th>NOMBRE</th>
-                            <th>USUARIO</th>
-                            <th>EMAIL</th>
-                            <th>CONTRASEÑA</th>
+                        <tr id="header">
+                            <th>Usuario</th>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>John Doe</td>
-                            <td>JohnDoe_8</td>
-                            <td>john.doe@example.com</td>
-                            <td>johndoe1</td>
-                        </tr>
+                    <tbody id="busqueda">
                     </tbody>
                 </table>
             </div>
-            <button class="btnUser" id="create-user">Create new user</button>
-        </div> -->
+            <div class="pagination">
+                <label class="paginationText">Registros del 1 al 4 de un total de 20</label>
+                <div class="paginationButton">
+                    <button class="pageButton" id="previusPage">Anterior</button>
+                    <button class="pageButton">1</button>
+                    <button class="pageButton">2</button>
+                    <button class="pageButton" id="nextPage">Siguiente</button>
+                </div>
+            </div>
+            <div class="line"></div>
+        </div>
+    </div>
 
-
-
-
-    <!--  <footer>
-        <p>footer</p>
-    </footer> -->
 
     <script src="js/main.js"></script>
+    <script src="js/snakeApi.js" type="module"></script>
+    <script src="js/userNew.js" type="module"></script>
+    <script src="js/modals.js"></script>
+    <!--   <script> src="//cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css"</script>
+    <script> src="//cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"</script> -->
     <script src="jquery/jquery.js"></script>
+
+</body>
 </body>
 
 </html>

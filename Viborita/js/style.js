@@ -8,3 +8,14 @@ function toggleMenu() {
 
 navToggle.addEventListener("click", toggleMenu);
 closeMenu.addEventListener("click", toggleMenu);
+
+
+//Método de búsqueda de usuarios
+$(document).ready(function() {
+    $("#searchText1").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#busqueda tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+});

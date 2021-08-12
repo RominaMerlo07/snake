@@ -1,4 +1,6 @@
-let users = [{
+const { User } = require("./users.entity");
+
+/* let users = [{
         id: 1,
         username: 'adri',
         fullname: 'Adrian Ojeda',
@@ -12,10 +14,14 @@ let users = [{
         email: 'aojeda@claro.com.ar',
         password: '12366'
     }
-];
+]; */
 
-const getUsers = () => {
+/* const getUsers = () => {
     return users;
+}; */
+
+const getUsers = async() => {
+    return await User.findAll();
 };
 
 const getUserById = (id) => {
@@ -30,7 +36,24 @@ const getUserById = (id) => {
 };
 
 
-const createUser = (usuario) => {
+const createUser = async(usuario) => {
+
+    console.log(usuario);
+    const { username, fullname, email, password } = usuario;
+
+    const user = await User.create({
+        //id: Math.floor(Math.random() * 1000),
+        username,
+        fullname,
+        email,
+        password
+    });
+    return user;
+
+};
+
+
+/* const createUser = (usuario) => {
 
     const { username, fullname, email, password } = usuario;
 
@@ -47,7 +70,7 @@ const createUser = (usuario) => {
     return user;
 
 };
-
+ */
 
 const updateUser = (id, usuario) => {
 

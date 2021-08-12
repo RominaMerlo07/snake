@@ -11,6 +11,7 @@ const dbConfig = {
 class MySql extends Sequelize {
     constructor(config) {
         super(config.database, config.username, config.password, Object.assign(dbConfig, config.dbConfig));
+        /*se puede quitar el this!*/
         this.config = {
             database: '',
             username: '',
@@ -18,8 +19,8 @@ class MySql extends Sequelize {
             dbConfig: dbConfig
         };
 
-
         this.config = Object.assign(this.config, config);
+        console.log(this.config); //ver que muestra cuando lo instancie!!!!
     }
 };
 
