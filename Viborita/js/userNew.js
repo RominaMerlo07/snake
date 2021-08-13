@@ -86,7 +86,7 @@ formulario.addEventListener('submit', (e) => {
                     icon: 'success',
                     title: 'El usuario "' + username + '" se creo con exito',
                     showConfirmButton: false,
-                    timer: 1500,
+                    timer: 2500,
                 });
                 //console.log(res);
                 downShowModal('crearUsuario');
@@ -98,7 +98,7 @@ formulario.addEventListener('submit', (e) => {
                     title: '¡Uups! - Ocurrio un error.',
                     text: 'El email "' + email + '" o el usuario "' + username + '" ya se encuentran registrados',
                     showConfirmButton: false,
-                    timer: 1500
+                    timer: 2500
                 });
                 // downShowModal('crearUsuario');
             }
