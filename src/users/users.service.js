@@ -24,7 +24,7 @@ const getUsers = async() => {
     return await User.findAll();
 };
 
-const getUserById = (id) => {
+/* const getUserById = (id) => {
     users = getUsers();
     const usuario = users.find((t) => t.id === id);
 
@@ -32,6 +32,40 @@ const getUserById = (id) => {
         return usuario;
     } else {
         return `El usuario id: ${id} no existe`;
+    }
+};
+ */
+const getUserById = async(id) => {
+    // users = getUsers();
+    const usuario = await User.findAll({
+        where: {
+            id: {
+                [Op.eq]: id
+            }
+        }
+    });
+
+    if (usuario) {
+        return usuario;
+    } else {
+        return `El usuario id: ${id} no existe`;
+    }
+};
+
+const getUserByUsername = async(username) => {
+    // users = getUsers();
+    const usuario = await User.findAll({
+        where: {
+            username: {
+                [Op.eq]: username
+            }
+        }
+    });
+
+    if (usuario) {
+        return usuario;
+    } else {
+        return `El usuario ${username} no existe`;
     }
 };
 
@@ -48,8 +82,8 @@ const createUser = async(usuario) => {
         email,
         password
     });
-    return user;
 
+    return user;
 };
 
 
@@ -106,6 +140,7 @@ const deleteUser = (id) => {
 module.exports = {
     getUsers,
     getUserById,
+    getUserByUsername,
     createUser,
     updateUser,
     deleteUser

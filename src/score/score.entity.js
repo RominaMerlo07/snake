@@ -4,17 +4,17 @@ const { Model, DataTypes } = require("sequelize"); //importa librerrias
 class Score extends Model {
     static init(sequelize) {
         return super.init({
-            id_user: {
-                type: DataTypes.INTEGER,
-                allowNull: false,
+            username: {
+                type: DataTypes.STRING,
+                primaryKey: true,
+                allowNull: true
             },
             puntaje: {
                 type: DataTypes.INTEGER,
-                allowNull: false,
+                allowNull: true
             },
         }, {
             //colocar las opciones
-
             modelName: "scores",
             sequelize,
             timestamps: false,

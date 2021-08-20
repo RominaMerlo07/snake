@@ -1,5 +1,4 @@
 const callSnakeApi = async(url, parameters, data) => {
-
     let _parameters = {
         method: 'GET',
         mode: 'cors',
@@ -20,14 +19,19 @@ const callSnakeApi = async(url, parameters, data) => {
     return fetch(url, _parameters);
 }
 
+
+/* USERS */
+
 const getUsers = async() => {
     const url = 'http://localhost:3000/v1/users';
     const parameters = {};
     const res = await callSnakeApi(url, parameters);
     const data = await res.json();
-
+    console.log('data: ' + JSON.stringify(data));
     return data;
-}
+};
+
+
 
 const createUser = async(user) => {
     const url = 'http://localhost:3000/v1/users/create';
@@ -36,7 +40,7 @@ const createUser = async(user) => {
     const data = await res.json();
     console.log('data: ' + JSON.stringify(data));
     return data;
-}
+};
 
 const updateUser = async(user) => {
     const url = 'http://localhost:3000/v1/users/updateUser/' + user.id;
@@ -45,7 +49,7 @@ const updateUser = async(user) => {
     const data = await res.json();
 
     return data;
-}
+};
 
 const deleteUser = async(user) => {
     const url = 'http://localhost:3000/v1/users/deleteUser/' + user.id;
@@ -54,11 +58,25 @@ const deleteUser = async(user) => {
     const data = await res.json();
 
     return data;
-}
+};
+
+
+/* SCORES */
+
+const insertScore = async(score) => {
+    const url = 'http://localhost:3000/v1/score/create';
+    // console.log(url); //la url la arma bien
+    const parameters = { method: 'POST', body: score };
+    // console.log(parameters); // los parameters se envian ok
+    const res = await callSnakeApi(url, parameters, score);
+    const data = await res.json();
+    console.log('data: ' + JSON.stringify(data));
+    return data;
+};
 
 /* (async() => {
     // console.log('ver');
     const res = await getUsers();
     console.log(res);
 })(); */
-export { getUsers, createUser, updateUser, deleteUser };
+export { getUsers, insertScore, createUser, updateUser, deleteUser };

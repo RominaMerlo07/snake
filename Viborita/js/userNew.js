@@ -1,8 +1,8 @@
-import { getUsers, createUser, updateUser, deleteUser } from './snakeApi.js';
+import { getUsers, insertScore, createUser, updateUser, deleteUser } from './snakeApi.js';
 import { downShowModal } from './modals.js'
 const formulario = document.getElementById('formularioUser');
 const inputs = document.querySelectorAll('#formularioUser input');
-var username, fullname, password, email;
+var username, fullname, password, email, puntaje;
 
 
 const expresiones = {
@@ -69,8 +69,10 @@ formulario.addEventListener('submit', (e) => {
         fullname = $('#nombre').val();
         password = $('#contrasenia').val();
         email = $('#email').val();
+        puntaje = 0;
 
         const usuario = { username, fullname, password, email };
+        //   let score = username;
 
         /*     (async() => {
             console.log('entre al crear');
@@ -81,6 +83,11 @@ formulario.addEventListener('submit', (e) => {
         (async() => {
             try {
                 const res = await createUser(usuario);
+                //  score = Object.assign(res.username, score);
+                const resScore = await insertScore(res);
+                // console.log(resScore);
+                /*como deberia unir las promises*/
+
                 Swal.fire({
                     position: 'center',
                     icon: 'success',

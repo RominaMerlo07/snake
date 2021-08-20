@@ -15,19 +15,36 @@ const getUsers = (req, res) => {
         res.sendStatus(500);
     }
 };
-
+//VER DE PASAR EL USERNAME
 const getUsersById = (req, res) => {
     try {
         const nroId = parseInt(req.params.id);
-        let user = userService.getUserById(nroId);
-        res.status(200);
-        res.send(user);
+        userService.getUserById(nroId).then((user) => {
+            res.status(200);
+            res.send(user);
+        }).catch((e) => {
+            res.sendStatus(500);
+        });
     } catch (error) {
         console.error(error);
         res.sendStatus(500);
     }
 };
 
+const getUserByUsername = (req, res) => {
+    try {
+        const username = parseInt(req.params.username);
+        userService.getUserByUsername(username).then((user) => {
+            res.status(200);
+            res.send(user);
+        }).catch((e) => {
+            res.sendStatus(500);
+        });
+    } catch (error) {
+        console.error(error);
+        res.sendStatus(500);
+    }
+};
 
 
 const createUser = (req, res) => {
@@ -62,6 +79,19 @@ const createUser = (req, res) => {
         res.status(200);
         res.send(users);
 
+    } catch (error) {
+        console.error(error);
+        res.sendStatus(500);
+    }
+}; */
+
+
+/* const getUsersById = (req, res) => {
+    try {
+        const nroId = parseInt(req.params.id);
+        let user = userService.getUserById(nroId);
+        res.status(200);
+        res.send(user);
     } catch (error) {
         console.error(error);
         res.sendStatus(500);
@@ -113,6 +143,7 @@ const deleteUser = (req, res) => {
 module.exports = {
     getUsers,
     getUsersById,
+    getUserByUsername,
     createUser,
     updateUser,
     deleteUser,

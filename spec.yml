@@ -6,6 +6,7 @@ servers:
   - url: http://localhost:3000/v1
 tags:
   - name: User
+  - name: Score #preguntar a Nico si esta bien
 components:
   schemas:
     user:
@@ -23,6 +24,15 @@ components:
         password:
           type: string
           format: password
+    score: #preguntar a Nico si esta bien
+      type: object
+      properties:
+        username:
+          type: string
+       # idUser:
+        #  type: integer
+        puntaje:
+          type: integer
 paths:
   /users:
     get:
@@ -55,6 +65,27 @@ paths:
           schema:
             type: integer
             format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/user'
+  /users/{username}:
+    get:
+      tags:
+        - "User"
+      summary: Obtiene un usuario por username
+      description: obtener un usuario del la aplicacion Snake
+      operationId: getUserByUsername
+      parameters:
+        - name: username
+          in: path
+          description: usuario
+          required: true
+          schema:
+            type: string
       responses:
         '200':
           description: OK
@@ -149,4 +180,151 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/user'
+                $ref: '#/components/schemas/user'                
+  /score:
+    get:
+      summary: Obtiene el listado de score
+      description: obtener el listado de score de todos los usuarios
+      operationId: getScore
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items: 
+                  $ref: "#/components/schemas/score"
+      tags:
+        - "Score"
+  /score/{id}:
+    get:
+      tags:
+        - "Score"
+      summary: Obtiene el score por IdUsuario
+      description: obtener el score de un usuario por id
+      operationId: getScoreById
+      parameters:
+        - name: id
+          in: path
+          description: Score User
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/score'
+  /score/create:
+    post:
+      tags:
+        - "Score"
+      summary: Obtiene el score por username
+      description: obtener el score de un usuario por username
+      operationId: getScoreByUsername
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:      # Request body contents
+              type: object
+              properties:
+                username:
+                  type: string
+           #     puntaje:
+            #     type: integer 
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/score'
+  /score/create/{id}:
+    post:
+      tags:
+        - "Score"
+      summary: Inicializa el score de un usuario.
+      description: Al crear un usuario, inicializa el score del mismo en cero
+      parameters:
+        - name: id
+          in: path
+          description: User ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:      # Request body contents
+              type: object
+              properties:
+                idUser:
+                  type: integer
+                puntaje:
+                  type: integer                      
+      responses:
+         '200':
+          description: created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/score'
+  /score/updateScore/{id}:
+    put:
+      tags:
+        - "Score"
+      summary: Update score a User
+      description: Actualiza el score de un usuario de la aplicacion snake 
+      parameters:
+        - name: id
+          in: path
+          description: User ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:      # Request body contents
+              type: object
+              properties:                              
+                puntaje:
+                  type: integer           
+      responses:
+         '200':
+          description: updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/score'
+  /score/deleteScore/{id}:
+    delete:
+      tags:
+        - "Score"
+      summary: Delete score a user
+      description: Elimina el score de un usuario de la aplicacion snake 
+      parameters:
+        - name: id
+          in: path
+          description: User ID
+          required: true
+          schema:
+            type: integer
+            format: int64                  
+      responses:
+         '200':
+          description: deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/score'                   
+  
