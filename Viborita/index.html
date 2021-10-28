@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./styles/style.css">
     <script src="https://kit.fontawesome.com/6c7501cde9.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,7 +44,7 @@
                     <button class="btnUsuarios" id="btnUsuarios"><i class="fas fa-users"></i> USUARIOS</button>
                 </li>
                 <li>
-                    <button class="btnUsuarioNuevo" id="create-user"><i class="fas fa-user-plus"></i> CREAR USUARIO</button>
+                    <button class="btnUsuarioNuevo" id="create-user"><i class="fas fa-user-plus"></i> REGISTRATE</button>
                 </li>
                 <li>
                     <button class="btnLogin" id="login"><i class="fas fa-sign-in-alt"></i> LOGIN</button>
@@ -143,7 +143,35 @@
                 <i class="far fa-times-circle" id="close"></i>
                 <div class="modal-content">
                     <h2><i class="far fa-user-circle"></i></h2>
-                    <form action="">
+                    <form class="formularioLogin" id="formularioLogin" action="">
+                        <!-- Grupo: Usuario -->
+                        <div class="formularioz__grupo" id="grupo__username">
+                            <label for="username" class="formulario__label">USUARIO</label>
+                            <div class="formulario__grupo-input">
+                                <input type="text" class="formularioLogin__input" name="username" id="username">
+                                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            </div>
+                            <p class="formularioLogin__input-error">Por favor ingresa tu usuario</p>
+                        </div>
+                        <!-- Grupo: Contraseña -->
+                        <div class="formulario__grupo" id="grupo__password">
+                            <label for="password" class="formulario__label">CONTRASEÑA</label>
+                            <div class="formulario__grupo-input">
+                                <input type="password" class="formularioLogin__input" name="password" id="password">
+                                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            </div>
+                            <p class="formularioLogin__input-error">Por favor ingresa tu contraseña</p>
+                        </div>
+                        <div class="formulario__mensaje" id="formulario__mensaje">
+                            <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente. </p>
+                        </div>
+                        <br/>
+                        <div class="formulario__grupo formulario__grupo-btn-enviar">
+                            <button type="submit" class="loginUsuario" id="loginUsuario">INGRESAR</button>
+                        </div>
+
+                    </form>
+                    <!--  <form action="">
                         <label for="name" style="color:black">USUARIO</label>
                         <br/>
                         <br/>
@@ -157,7 +185,7 @@
                         <br/>
                         <br/>
                         <button class="sesion" type="submit" id="ingresar">INGRESAR</button>
-                    </form>
+                    </form> -->
                 </div>
                 <div class="line"></div>
             </div>
@@ -266,13 +294,16 @@
 
 
     <script src="js/main.js"></script>
+    <script src="js/login.js" type="module"></script>
     <script src="js/snakeApi.js" type="module"></script>
+    <script src="js/regex.js" type="module"></script>
+
     <script src="js/userNew.js" type="module"></script>
     <script src="js/modals.js"></script>
     <script src="js/pagination.js"></script>
     <!--   <script> src="//cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css"</script>
     <script> src="//cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"</script> -->
-    <script src="jquery/jquery.js"></script>
+    <!-- <script src="jquery/jquery.js"></script> -->
 
 </body>
 </body>

@@ -1,0 +1,224 @@
+/***************************************** LOGIN **********************************************/
+
+.container-modal {
+    background: rgba(14, 13, 13, 0.5);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+
+.container-modal.show {
+    visibility: visible;
+}
+
+.modal.show {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.modal {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    max-width: 900px;
+    transform: scale(0.6);
+    opacity: 0;
+    transition: .3s ease all;
+}
+
+.modal-title {
+    //background: rgb(230, 235, 219);
+    flex-basis: 0;
+    flex-grow: 1.5;
+    height: 460px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    background-image: url('../img/game2.PNG');
+    background-size: 75%;
+    background-position: center;
+    background-repeat: no-repeat;
+    h2 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 45px;
+        font-style: bold;
+        z-index: 2;
+        color: #fff;
+    }
+}
+
+.modal-title::after {
+    content: '';
+    position: absolute;
+    background: rgba(112, 133, 82, 0.2);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.modal-title::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+.modal-login {
+    //background: #fff;   
+    background: rgb(234, 243, 226);
+    flex-basis: 0;
+    flex-grow: 2;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.modal-content {
+    align-items: center;
+    text-align: center;
+    h2 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 85px;
+        font-style: bold;
+        //color: #1F4068;
+        color: rgb(24, 51, 6);
+        margin-bottom: 25px;
+    }
+}
+
+.line {
+    width: 100%;
+    height: 20px;
+    background: rgb(51, 143, 55);
+}
+
+#close {
+    position: absolute;
+    right: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #fff;
+    font-style: bold;
+}
+
+label {
+    padding: 35px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    color: rgb(24, 51, 6);
+}
+
+input {
+    width: 60%;
+    padding: 10px;
+    //border: none;
+    background: rgb(246, 248, 246);
+    margin-bottom: 15px;
+    border-radius: 70px;
+    border-color: rgb(24, 51, 6);
+    text-align: center;
+    font-style: bold;
+}
+
+input:focus {
+    outline: none;
+}
+
+
+/* input:required {
+    border: 1px solid red;
+} */
+
+.loginUsuario {
+    width: 30%;
+    padding: 10px;
+    border-radius: 50px;
+    border: none;
+    //border-color: rgb(5, 12, 1);
+    background-color: rgb(12, 151, 19);
+    color: #fff;
+    cursor: pointer;
+}
+
+.loginUsuario:hover {
+    width: 30%;
+    padding: 10px;
+    border: none;
+    border-radius: 50px;
+    background-color: rgb(149, 201, 119);
+    color: black;
+    cursor: pointer;
+    transition: .25s ease;
+}
+
+.formularioLogin__input {
+    align-items: center;
+    width: 70%;
+    padding: 10px;
+    background: #fff;
+    margin-bottom: 15px;
+    border-radius: 70px;
+    text-align: center;
+    font-style: bold;
+    border: 3px solid transparent;
+    height: 40px;
+    line-height: 40px;
+    transition: .3s ease;
+}
+
+.formularioLogin__input:focus {
+    border-color: rgb(24, 51, 6);
+    // border: 3px solid #0075FF;
+    outline: none;
+    box-shadow: 3px 0px 30px rgba(163, 163, 163, 0.4);
+}
+
+.formularioLogin__input-error {
+    font-size: 12px;
+    margin-bottom: 0;
+    text-align: center;
+    display: none;
+}
+
+.formularioLogin__input-error-activo {
+    display: block;
+}
+
+
+/* .sesion {
+    width: 30%;
+    padding: 10px;
+    border-radius: 50px;
+    border: none;
+    //border-color: rgb(5, 12, 1);
+    background-color: rgb(98, 209, 34);
+    color: rgb(5, 12, 1);
+    cursor: pointer;
+}
+
+.sesion:hover {
+    width: 30%;
+    padding: 10px;
+    border: none;
+    border-radius: 50px;
+    background-color: rgb(149, 201, 119);
+    color: white;
+    cursor: pointer;
+    transition: .25s ease;
+}
+ */

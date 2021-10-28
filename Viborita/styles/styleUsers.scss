@@ -1,0 +1,171 @@
+/*************************************** LISTA USUARIO ****************************************/
+
+.container-usuarios {
+    background: rgba(14, 13, 13, 0.5);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+
+.usuarios {
+    //height: 570px;
+    //  width: 1200px;
+    height: 570px;
+    width: 950px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    background: rgb(234, 243, 226);
+}
+
+.tabla {
+    position: absolute;
+    //left: 50%;
+    top: 105px;
+    //transform: translate(-50%, -50%);
+    border-collapse: collapse;
+    width: 100%;
+    height: 360px;
+    background: rgb(234, 243, 226);
+    // box-shadow: 2px 2px 12px;
+}
+
+table {
+    width: 100%;
+    height: 360px;
+}
+
+tr {
+    transition: all .2s ease-in;
+    text-transform: uppercase;
+}
+
+th,
+td {
+    padding: 20px;
+    margin: 2px;
+    text-align: center;
+    font-size: 16px;
+    //font-size: x-large;
+    color: rgb(24, 51, 6);
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    border-top: 1px solid #ddd;
+}
+
+.search {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-end;
+    position: absolute;
+    top: 20px;
+    height: 85px;
+    width: 100%;
+}
+
+.searchText {
+    //padding: 35px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    //font-size: x-large;
+    color: rgb(24, 51, 6);
+}
+
+.searchBox {
+    height: 50%;
+    width: 25%;
+    margin-right: 20px;
+    padding: 10px;
+    background: rgb(246, 248, 246);
+    border-radius: 70px;
+    border-color: rgb(24, 51, 6);
+    text-align: center;
+    font-style: bold;
+    font-size: 16px;
+    //font-size: x-large;
+}
+
+.pagination {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    top: 465px;
+    height: 85px;
+    width: 100%;
+}
+
+.paginationText {
+    position: absolute;
+    padding: 0;
+    left: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    //font-size: x-large;
+    color: rgb(24, 51, 6);
+}
+
+.paginationButton {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    right: 20px;
+    align-items: center;
+    width: auto;
+}
+
+.pageButton {
+    width: auto;
+    margin: 2px;
+    padding: 10px;
+    border-radius: 50px;
+    border: none;
+    background-color: rgb(98, 209, 34);
+    color: rgb(5, 12, 1);
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    // font-size: x-large;
+    color: rgb(24, 51, 6);
+}
+
+#actions {
+    display: flex;
+    color: rgb(51, 143, 55);
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    cursor: pointer;
+}
+
+.fas.fa-edit {
+    color: rgb(37, 58, 241);
+}
+
+.fas.fa-trash-alt {
+    color: red;
+}
+
+.container-usuarios.show {
+    visibility: visible;
+}
+
+#closeUsuarios {
+    position: absolute;
+    right: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #fff;
+    font-style: bold;
+}

@@ -1,3 +1,5 @@
+let usuario;
+
 const callSnakeApi = async(url, parameters, data) => {
     let _parameters = {
         method: 'GET',
@@ -31,6 +33,30 @@ const getUsers = async() => {
     return data;
 };
 
+
+
+const getUserByUsername = async(user) => {
+    //  const usuario;
+    const url = 'http://localhost:3000/v1/users/getUserByUsername/' + user;
+    console.log(url);
+    const parameters = {};
+    const res = await callSnakeApi(url, parameters, user.username);
+    const data = await res.json();
+    console.log('data: ' + JSON.stringify(data));
+
+    data.forEach(element => {
+        usuario = {
+            id: element.id,
+            username: element.username,
+            fullname: element.fullname,
+            email: element.email,
+            password: element.password
+        }
+    });
+
+    console.log(usuario.username);
+    return usuario;
+};
 
 
 const createUser = async(user) => {
@@ -79,4 +105,4 @@ const insertScore = async(score) => {
     const res = await getUsers();
     console.log(res);
 })(); */
-export { getUsers, insertScore, createUser, updateUser, deleteUser };
+export { getUsers, getUserByUsername, insertScore, createUser, updateUser, deleteUser };

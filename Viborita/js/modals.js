@@ -1,6 +1,4 @@
-var username,
-    password,
-    btnCloseLogin = document.getElementById('close'),
+var btnCloseLogin = document.getElementById('close'),
     btnLogin = document.getElementById('login'),
     btnUsuario = document.getElementById('create-user'),
     btnCloseUsuario = document.getElementById('closeUsuario'),
@@ -80,7 +78,7 @@ btnUsuarios.addEventListener('click', function(e) {
 });
 
 
-btnIngresar.addEventListener("click", function(e) {
+/* btnIngresar.addEventListener("click", function(e) {
     e.preventDefault();
     username = $('#username').val();
     password = $('#password').val();
@@ -94,6 +92,6 @@ btnIngresar.addEventListener("click", function(e) {
         showSnake();
         $("#login").html(username); // pensar como hacer para que no renderice el login de nuevo
     }
-});
+}); */
 
 export { showModal, downShowModal, showSnake };

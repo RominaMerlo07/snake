@@ -1,0 +1,49 @@
+/***************************************** JUEGO **********************************************/
+
+.container-flex {
+    display: flex;
+    justify-content: center;
+    visibility: hidden;
+}
+
+.container-flex.showSnake {
+    visibility: visible;
+}
+
+#container {
+    display: grid;
+    //padding: 20px;
+    height: 950px;
+    width: 1000px;
+    grid-template: repeat(8, 1fr) / repeat(9, 1fr);
+    //background-color: black;
+    justify-content: center;
+    align-items: center;
+    .casillero {
+        padding: 45%;
+        //color: transparent;
+        text-align: center;
+        color: transparent;
+        &:nth-child(odd) {
+            background-color: rgb(223, 175, 113);
+            //background-color: greenyellow;
+        }
+        &:nth-child(even) {
+            background-color: rgb(204, 148, 74);
+            // background-color: rgb(59, 78, 30);
+        }
+        &.headSnake {
+            background-image: url("../img/headSnake.png");
+            background-color: rgb(120, 192, 72);
+            // background-color: goldenrod;
+        }
+        &.bodySnake {
+            background-color: rgb(97, 156, 58);
+            //background-color: grey;
+        }
+        &.food {
+            background-image: url("../img/manzana.png");
+            //background-color: red;
+        }
+    }
+}

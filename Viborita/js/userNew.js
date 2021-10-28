@@ -1,16 +1,17 @@
 import { insertScore, createUser } from './snakeApi.js';
-import { downShowModal } from './modals.js'
+import { downShowModal } from './modals.js';
+import { expresiones } from './regex.js';
 const formulario = document.getElementById('formularioUser');
 const inputs = document.querySelectorAll('#formularioUser input');
 var username, fullname, password, email;
 
 
-const expresiones = {
+/* const expresiones = {
     usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
     nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
     contrasenia: /^.{4,12}$/, // 4 a 12 digitos.
     email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
-};
+}; */
 
 const campos = {
     usuario: false,
@@ -82,10 +83,8 @@ formulario.addEventListener('submit', (e) => {
         (async() => {
             try {
                 const res = await createUser(usuario);
-                //  score = Object.assign(res.username, score);
                 const resScore = await insertScore(res);
-                // console.log(resScore);
-                /*como deberia unir las promises*/
+                /*como manejo las excepciones.. que pasa cuando falla una?????*/
 
                 Swal.fire({
                     position: 'center',

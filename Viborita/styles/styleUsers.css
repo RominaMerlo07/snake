@@ -1,0 +1,203 @@
+/*************************************** LISTA USUARIO ****************************************/
+.container-usuarios {
+  background: rgba(14, 13, 13, 0.5);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  visibility: hidden;
+}
+
+.usuarios {
+  height: 570px;
+  width: 950px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative;
+  background: #eaf3e2;
+}
+
+.tabla {
+  position: absolute;
+  top: 105px;
+  border-collapse: collapse;
+  width: 100%;
+  height: 360px;
+  background: #eaf3e2;
+}
+
+table {
+  width: 100%;
+  height: 360px;
+}
+
+tr {
+  -webkit-transition: all .2s ease-in;
+  transition: all .2s ease-in;
+  text-transform: uppercase;
+}
+
+th,
+td {
+  padding: 20px;
+  margin: 2px;
+  text-align: center;
+  font-size: 16px;
+  color: #183306;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  border-top: 1px solid #ddd;
+}
+
+.search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  position: absolute;
+  top: 20px;
+  height: 85px;
+  width: 100%;
+}
+
+.searchText {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  color: #183306;
+}
+
+.searchBox {
+  height: 50%;
+  width: 25%;
+  margin-right: 20px;
+  padding: 10px;
+  background: #f6f8f6;
+  border-radius: 70px;
+  border-color: #183306;
+  text-align: center;
+  font-style: bold;
+  font-size: 16px;
+}
+
+.pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  top: 465px;
+  height: 85px;
+  width: 100%;
+}
+
+.paginationText {
+  position: absolute;
+  padding: 0;
+  left: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  color: #183306;
+}
+
+.paginationButton {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  position: absolute;
+  right: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: auto;
+}
+
+.pageButton {
+  width: auto;
+  margin: 2px;
+  padding: 10px;
+  border-radius: 50px;
+  border: none;
+  background-color: #62d122;
+  color: #050c01;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  color: #183306;
+}
+
+#actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #338f37;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  cursor: pointer;
+}
+
+.fas.fa-edit {
+  color: #253af1;
+}
+
+.fas.fa-trash-alt {
+  color: red;
+}
+
+.container-usuarios.show {
+  visibility: visible;
+}
+
+#closeUsuarios {
+  position: absolute;
+  right: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #fff;
+  font-style: bold;
+}
+/*# sourceMappingURL=styleUsers.css.map */

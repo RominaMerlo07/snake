@@ -15,25 +15,11 @@ const getUsers = (req, res) => {
         res.sendStatus(500);
     }
 };
-//VER DE PASAR EL USERNAME
-const getUsersById = (req, res) => {
-    try {
-        const nroId = parseInt(req.params.id);
-        userService.getUserById(nroId).then((user) => {
-            res.status(200);
-            res.send(user);
-        }).catch((e) => {
-            res.sendStatus(500);
-        });
-    } catch (error) {
-        console.error(error);
-        res.sendStatus(500);
-    }
-};
 
 const getUserByUsername = (req, res) => {
+
     try {
-        const username = parseInt(req.params.username);
+        const username = req.params.username;
         userService.getUserByUsername(username).then((user) => {
             res.status(200);
             res.send(user);
@@ -46,6 +32,22 @@ const getUserByUsername = (req, res) => {
     }
 };
 
+
+//VER DE PASAR EL USERNAME
+/* const getUserPass = (req, res) => {
+    try {
+        const usuario = req.body;
+        userService.getUserPass(usuario).then((user) => {
+            res.status(200);
+            res.send(user);
+        }).catch((e) => {
+            res.sendStatus(500);
+        });
+    } catch (error) {
+        console.error(error);
+        res.sendStatus(500);
+    }
+}; */
 
 const createUser = (req, res) => {
     try {
@@ -142,7 +144,6 @@ const deleteUser = (req, res) => {
 
 module.exports = {
     getUsers,
-    getUsersById,
     getUserByUsername,
     createUser,
     updateUser,

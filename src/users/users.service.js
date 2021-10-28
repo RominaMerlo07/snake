@@ -1,75 +1,40 @@
 const { User } = require("./users.entity");
 
-/* let users = [{
-        id: 1,
-        username: 'adri',
-        fullname: 'Adrian Ojeda',
-        email: 'aojeda@claro.com.ar',
-        password: '123'
-    },
-    {
-        id: 2,
-        username: 'adri2',
-        fullname: 'Adrian Ojeda',
-        email: 'aojeda@claro.com.ar',
-        password: '12366'
-    }
-]; */
-
-/* const getUsers = () => {
-    return users;
-}; */
 
 const getUsers = async() => {
     return await User.findAll();
 };
 
-/* const getUserById = (id) => {
-    users = getUsers();
-    const usuario = users.find((t) => t.id === id);
+const getUserByUsername = (username) => {
+
+    const usuario = User.findAll({ where: { username: username } });
+
+    console.log('usuario: ' + usuario);
+    return usuario;
+};
+
+
+
+/* const getUserPass = async(user) => {
+    // users = getUsers();
+    const { username, password } = user;
+
+    const usuario = await User.findAll({
+        where: {
+            [op.and]: [
+                { username: username },
+                { password: password }
+            ]
+        }
+    });
 
     if (usuario) {
         return usuario;
     } else {
-        return `El usuario id: ${id} no existe`;
-    }
+        return `500`;
+    };
 };
  */
-const getUserById = async(id) => {
-    // users = getUsers();
-    const usuario = await User.findAll({
-        where: {
-            id: {
-                [Op.eq]: id
-            }
-        }
-    });
-
-    if (usuario) {
-        return usuario;
-    } else {
-        return `El usuario id: ${id} no existe`;
-    }
-};
-
-const getUserByUsername = async(username) => {
-    // users = getUsers();
-    const usuario = await User.findAll({
-        where: {
-            username: {
-                [Op.eq]: username
-            }
-        }
-    });
-
-    if (usuario) {
-        return usuario;
-    } else {
-        return `El usuario ${username} no existe`;
-    }
-};
-
-
 const createUser = async(usuario) => {
 
     console.log(usuario);
@@ -87,24 +52,7 @@ const createUser = async(usuario) => {
 };
 
 
-/* const createUser = (usuario) => {
 
-    const { username, fullname, email, password } = usuario;
-
-    const user = {
-        id: Math.floor(Math.random() * 1000),
-        username,
-        fullname,
-        email,
-        password
-    }
-
-    users.push(user);
-
-    return user;
-
-};
- */
 
 const updateUser = (id, usuario) => {
 
@@ -139,9 +87,60 @@ const deleteUser = (id) => {
 
 module.exports = {
     getUsers,
-    getUserById,
     getUserByUsername,
     createUser,
     updateUser,
     deleteUser
 };
+
+/* let users = [{
+        id: 1,
+        username: 'adri',
+        fullname: 'Adrian Ojeda',
+        email: 'aojeda@claro.com.ar',
+        password: '123'
+    },
+    {
+        id: 2,
+        username: 'adri2',
+        fullname: 'Adrian Ojeda',
+        email: 'aojeda@claro.com.ar',
+        password: '12366'
+    }
+]; */
+
+/* const getUsers = () => {
+    return users;
+}; */
+
+
+/* const getUserById = (id) => {
+    users = getUsers();
+    const usuario = users.find((t) => t.id === id);
+
+    if (usuario) {
+        return usuario;
+    } else {
+        return `El usuario id: ${id} no existe`;
+    }
+};
+ */
+
+/* const createUser = (usuario) => {
+
+    const { username, fullname, email, password } = usuario;
+
+    const user = {
+        id: Math.floor(Math.random() * 1000),
+        username,
+        fullname,
+        email,
+        password
+    }
+
+    users.push(user);
+
+    return user;
+
+};
+ */
