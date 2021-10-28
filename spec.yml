@@ -72,20 +72,20 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/user'
-  /users/{username}:
+  /users/getUserByUsername/{username}:
     get:
       tags:
         - "User"
-      summary: Obtiene un usuario por username
-      description: obtener un usuario del la aplicacion Snake
+      summary: Usuario 
+      description: obtener un usuario
       operationId: getUserByUsername
       parameters:
         - name: username
           in: path
-          description: usuario
+          description: username
           required: true
           schema:
-            type: string
+            type: string     
       responses:
         '200':
           description: OK
@@ -240,38 +240,6 @@ paths:
       responses:
         '200':
           description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/score'
-  /score/create/{id}:
-    post:
-      tags:
-        - "Score"
-      summary: Inicializa el score de un usuario.
-      description: Al crear un usuario, inicializa el score del mismo en cero
-      parameters:
-        - name: id
-          in: path
-          description: User ID
-          required: true
-          schema:
-            type: integer
-            format: int64
-      requestBody:
-        required: false
-        content:
-          application/json:
-            schema:      # Request body contents
-              type: object
-              properties:
-                idUser:
-                  type: integer
-                puntaje:
-                  type: integer                      
-      responses:
-         '200':
-          description: created
           content:
             application/json:
               schema:
