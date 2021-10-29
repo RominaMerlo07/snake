@@ -30,4 +30,4 @@ const initMySql = async(login) => {
     }
 }
 
-initMySql({ username: 'romina', password: '123456' });
+initMySql({ username: 'franco', password: 'Lavelapuerca1995$' });

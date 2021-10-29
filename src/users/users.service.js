@@ -13,6 +13,19 @@ const getUserByUsername = (username) => {
     return usuario;
 };
 
+const getUserById = (id) => {
+    users = getUsers();
+    const usuario = users.find((t) => t.id === id);
+
+    if (usuario) {
+        return usuario;
+    } else {
+        return `El usuario id: ${id} no existe`;
+    }
+};
+
+
+
 
 
 /* const getUserPass = async(user) => {
@@ -51,43 +64,35 @@ const createUser = async(usuario) => {
     return user;
 };
 
+const updateUser = async(pId, usuario) => {
 
+    const user = await User.update(usuario,{
+            where: {
+                id: pId
+            }
+        })
 
-
-const updateUser = (id, usuario) => {
-
-    const { username, fullname, email, password } = usuario;
-    const idx = users.findIndex((p) => p.id === id);
-
-
-    if (idx >= 0) {
-        users[idx].username = username || users[idx].username;
-        users[idx].fullname = fullname || users[idx].fullname;
-        users[idx].email = email || users[idx].email;
-        users[idx].password = password || users[idx].password;
-        /*TODO LO ANTERIOR SE PUEDE SIMPLICAR CON LA SIGUIENTE LINEA 
-          USANDO EL SPREAD: */
-        /*  users[idx] = {...users[idx], username, fullname, email, password }; */
-        return users[idx];
-    } else {
-        return `El usuario id: ${id} no existe`;
-    }
+        return user;
 };
 
-const deleteUser = (id) => {
-    const idx = users.findIndex((p) => p.id === id);
-    if (idx >= 0) {
-        // users.splice(idx, 1);
-        const user = users.splice(idx, 1)[0];
-        return user;
-    } else {
+const deleteUser = async(id) => {
+
+    //Obtengo usuario mediante clave primaria
+    const userToDelete = await User.findByPk(id);
+    
+    if (userToDelete === null) {
         return `El usuario id: ${id} no existe`;
+    } else {
+        const user = userToDelete.destroy();
+        return user;
     }
+    
 }
 
 module.exports = {
     getUsers,
     getUserByUsername,
+    getUserById,
     createUser,
     updateUser,
     deleteUser

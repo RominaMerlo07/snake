@@ -32,6 +32,17 @@ const getUserByUsername = (req, res) => {
     }
 };
 
+const getUsersById = (req, res) => {
+    try {
+        const nroId = parseInt(req.params.id);
+        let user = userService.getUserById(nroId);
+        res.status(200);
+        res.send(user);
+    } catch (error) {
+        console.error(error);
+        res.sendStatus(500);
+    }
+};
 
 //VER DE PASAR EL USERNAME
 /* const getUserPass = (req, res) => {
@@ -120,10 +131,13 @@ const updateUser = (req, res) => {
     try {
         const id = parseInt(req.params.id);
         const usuario = req.body;
-        let user = userService.updateUser(id, usuario);
+        userService.updateUser(id, usuario).then((user) => {
+            res.status(200);
+            res.send(user);
+        }).catch((e) => {
+            res.sendStatus("500");
+        });
 
-        res.status(200);
-        res.send(user);
     } catch (error) {
         console.error(error);
         res.sendStatus(500);
@@ -145,6 +159,7 @@ const deleteUser = (req, res) => {
 module.exports = {
     getUsers,
     getUserByUsername,
+    getUsersById,
     createUser,
     updateUser,
     deleteUser,

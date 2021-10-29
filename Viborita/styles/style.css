@@ -606,6 +606,7 @@ input:focus {
   width: 100%;
   height: 360px;
   background: #eaf3e2;
+  overflow-y: hidden;
 }
 
 table {
@@ -623,6 +624,7 @@ th,
 td {
   padding: 20px;
   margin: 2px;
+  height: 69.33px;
   text-align: center;
   font-size: 16px;
   color: #183306;
@@ -631,6 +633,10 @@ td {
 
 th {
   border-top: 1px solid #ddd;
+}
+
+td:focus {
+  outline: none;
 }
 
 .search {
@@ -754,6 +760,10 @@ th {
 
 .container-usuarios.show {
   visibility: visible;
+}
+
+.grilla__campo-incorrecto {
+  color: #bb2929;
 }
 
 #closeUsuarios {
