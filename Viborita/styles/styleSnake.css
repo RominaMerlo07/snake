@@ -16,8 +16,8 @@
 #container {
   display: -ms-grid;
   display: grid;
-  height: 950px;
-  width: 1000px;
+  height: 300px;
+  width: 400px;
   -ms-grid-rows: (1fr)[8];
   -ms-grid-columns: (1fr)[9];
       grid-template: repeat(8, 1fr)/repeat(9, 1fr);
@@ -44,7 +44,7 @@
 }
 
 #container .casillero.headSnake {
-  background-image: url("../img/headSnake.png");
+  background-image: url("../img/headSnake_2.png");
   background-color: #78c048;
 }
 
@@ -53,6 +53,6 @@
 }
 
 #container .casillero.food {
-  background-image: url("../img/manzana.png");
+  background-image: url("../img/manzana_2.png");
 }
 /*# sourceMappingURL=styleSnake.css.map */

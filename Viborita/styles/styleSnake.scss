@@ -13,8 +13,8 @@
 #container {
     display: grid;
     //padding: 20px;
-    height: 950px;
-    width: 1000px;
+    height: 300px; //950px;
+    width: 400px; //1000px;
     grid-template: repeat(8, 1fr) / repeat(9, 1fr);
     //background-color: black;
     justify-content: center;
@@ -33,7 +33,7 @@
             // background-color: rgb(59, 78, 30);
         }
         &.headSnake {
-            background-image: url("../img/headSnake.png");
+            background-image: url("../img/headSnake_2.png");
             background-color: rgb(120, 192, 72);
             // background-color: goldenrod;
         }
@@ -42,7 +42,7 @@
             //background-color: grey;
         }
         &.food {
-            background-image: url("../img/manzana.png");
+            background-image: url("../img/manzana_2.png");
             //background-color: red;
         }
     }

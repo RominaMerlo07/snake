@@ -46,6 +46,14 @@ function showSnake() {
     $('.container-flex').addClass('showSnake');
 };
 
+function showOpciones() {
+    $('.btnUsuarios').addClass('show');
+    $('.score').addClass('show');
+    $('.puntaje').addClass('show');
+};
+
+
+
 btnCloseLogin.addEventListener("click", function(e) {
     e.preventDefault();
     downShowModal('login');
@@ -94,4 +102,4 @@ btnUsuarios.addEventListener('click', function(e) {
     }
 }); */
 
-export { showModal, downShowModal, showSnake };
+export { showModal, downShowModal, showSnake, showOpciones };
