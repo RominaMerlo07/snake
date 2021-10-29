@@ -1,4 +1,4 @@
-import { downShowModal, showSnake } from './modals.js';
+import { downShowModal, showSnake, showOpciones } from './modals.js';
 import { expresiones } from './regex.js';
 import { getUserByUsername } from './snakeApi.js'
 
@@ -70,6 +70,7 @@ formulario.addEventListener('submit', function(e) {
                 })
                 downShowModal('login');
                 showSnake();
+                showOpciones();
                 $("#login").html(res.username); // pensar como hacer para que no renderice el login de nuevo
             } else {
                 Swal.fire({

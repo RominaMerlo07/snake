@@ -27,6 +27,11 @@ body {
     color: white;
 }
 
+.intro {
+    display: block;
+    margin: auto;
+}
+
 
 /***************************************** NAVBAR **********************************************/
 
@@ -59,13 +64,18 @@ body {
 }
 
 .btnUsuarios {
+    visibility: hidden;
+}
+
+.btnUsuarios.show {
+    visibility: visible;
     border: none;
     background: none;
     color: rgb(132, 240, 227);
     cursor: pointer;
 }
 
-.btnUsuarios:hover {
+.btnUsuarios.show:hover {
     color: rgb(174, 220, 226);
     border: none;
     background: none;
@@ -100,9 +110,22 @@ body {
 }
 
 .score {
+    visibility: hidden;
+}
+
+.score.show {
+    visibility: visible;
     width: 60px;
     background-color: whitesmoke;
     color: rgb(2, 23, 37);
+}
+
+.puntaje {
+    visibility: hidden;
+}
+
+.puntaje.show {
+    visibility: visible;
 }
 
 .nav-toggle,

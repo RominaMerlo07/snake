@@ -37,7 +37,7 @@
                 <button class="close-menu" aria-label="Cerrar Menú">
                     <i class="fas fa-times"></i>
                 </button>
-                <li>PUNTAJE
+                <li class="puntaje">PUNTAJE
                     <input id="puntaje" class="score" style="text-align: center;" type="text" value="0" disabled>
                 </li>
                 <li>
@@ -53,10 +53,12 @@
         </nav>
     </header>
 
+
+    <!--     <img class="intro" src="img/snakes.gif" alt="FRM-SNAKE"> -->
+
     <!-- Juego Snake -->
     <div class="container-flex">
         <div id="container">
-            
         </div>
     </div>
 
@@ -199,7 +201,7 @@
                     <thead>
                         <tr id="header">
                             <th hidden>Id</th>
-                            
+
                             <th>Usuario</th>
                             <th>Nombre</th>
                             <th>Email</th>
@@ -224,15 +226,13 @@
     </div>
 
     <script>
-
         let div = document.getElementById('container');
 
-        for (let i = 0; i < 9*8; i++) {
-            
-            div.innerHTML += `<div class="casillero">${ i }</div>`;
-            
-        }
+        for (let i = 0; i < 9 * 8; i++) {
 
+            div.innerHTML += `<div class="casillero">${ i }</div>`;
+
+        }
     </script>
     <script src="js/main.js"></script>
     <script src="js/login.js" type="module"></script>

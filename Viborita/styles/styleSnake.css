@@ -1,58 +1,61 @@
 /***************************************** JUEGO **********************************************/
+
 .container-flex {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  visibility: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    visibility: hidden;
 }
 
 .container-flex.showSnake {
-  visibility: visible;
+    visibility: visible;
 }
 
 #container {
-  display: -ms-grid;
-  display: grid;
-  height: 950px;
-  width: 1000px;
-  -ms-grid-rows: (1fr)[8];
-  -ms-grid-columns: (1fr)[9];
-      grid-template: repeat(8, 1fr)/repeat(9, 1fr);
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+    display: -ms-grid;
+    display: grid;
+    height: 300px;
+    width: 400px;
+    /* -ms-grid-rows: (1fr)[8];
+    -ms-grid-columns: (1fr)[9]; */
+    grid-template: repeat(8, 1fr)/repeat(9, 1fr);
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
 }
 
 #container .casillero {
-  padding: 45%;
-  text-align: center;
-  color: transparent;
+    padding: 45%;
+    text-align: center;
+    color: transparent;
 }
 
 #container .casillero:nth-child(odd) {
-  background-color: #dfaf71;
+    background-color: #dfaf71;
 }
 
 #container .casillero:nth-child(even) {
-  background-color: #cc944a;
+    background-color: #cc944a;
 }
 
 #container .casillero.headSnake {
-  background-image: url("../img/headSnake.png");
-  background-color: #78c048;
+    background-image: url("../img/headSnake_2.png");
+    background-color: #78c048;
 }
 
 #container .casillero.bodySnake {
-  background-color: #619c3a;
+    background-color: #619c3a;
 }
 
 #container .casillero.food {
-  background-image: url("../img/manzana.png");
+    background-image: url("../img/manzana_2.png");
 }
+
+
 /*# sourceMappingURL=styleSnake.css.map */
