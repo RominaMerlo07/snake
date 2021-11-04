@@ -31,5 +31,5 @@ const initMySql = async(login) => {
 }
 
 // initMySql({ username: 'romina', password: '123456' });
-initMySql({ username: 'root', password: 'root1234' });
+//initMySql({ username: 'root', password: 'root1234' });
 //initMySql({ username: 'romina', password: '123456' });
