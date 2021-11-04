@@ -1,17 +1,19 @@
-let container = document.getElementById("container");
-let body = document.getElementsByTagName("body")[0];
+const container = document.getElementById("container");
+const body = document.getElementsByTagName("body")[0];
 //Devuleve la cantidad de columnas
-let columnas = document.defaultView
+const columnas = document.defaultView
   .getComputedStyle(container)
   .getPropertyValue("grid-template-columns")
   .split(" ").length;
 //Devuelve la cantidad de casilleros
-let limSuperior = document
+const limSuperior = document
   .querySelector("#container")
   .querySelectorAll("div").length;
 
 let movAnterior;
 let posSiguiente;
+let direccion = 1;
+let inGame = true;
 
 let vSnake = [1, 0];
 let posComida = 30;
@@ -56,10 +58,21 @@ let comer = () => {
   posComida = nuevaPosComida;
 };
 
-let movimiento = (movInicial) => {
+let movimiento = () => {
   let posCabeza;
   let parteCuerpo;
   let posActual;
+  let movInicial = 1;
+//       O ooooooooo
+  if (direccion === 0) {
+    movInicial = -columnas;
+  } else if (direccion === 1) {
+    movInicial = 1;
+  } else if (direccion === 2) {
+    movInicial = columnas;
+  } else if (direccion === 3) {
+    movInicial = -1
+  }
 
   for (let i = 0; i < vSnake.length; i++) {
     if (i === 0) {
@@ -86,27 +99,31 @@ let movimiento = (movInicial) => {
 body.addEventListener("keyup", (e) => {
   switch (e.key) {
     case "ArrowRight":
-      if (movAnterior !== "ArrowLeft") {
-        movimiento(1);
-        movAnterior = e.key;
+      if (direccion === 0 || direccion === 2) {
+        direccion = 1;
+        // movimiento(1);
+        // movAnterior = e.key;
       }
       break;
     case "ArrowLeft":
-      if (movAnterior !== "ArrowRight") {
-        movimiento(-1);
-        movAnterior = e.key;
+      if (direccion === 0 || direccion === 2) {
+        direccion = 3;
+        // movimiento(-1);
+        // movAnterior = e.key;
       }
       break;
     case "ArrowDown":
-      if (movAnterior !== "ArrowUp") {
-        movimiento(columnas);
-        movAnterior = e.key;
+      if (direccion === 1 || direccion === 3) {
+        direccion = 2;
+        // movimiento(columnas);
+        // movAnterior = e.key;
       }
       break;
     case "ArrowUp":
-      if (movAnterior !== "ArrowDown") {
-        movimiento(-columnas);
-        movAnterior = e.key;
+      if (direccion === 1 || direccion === 3) {
+        direccion = 0;
+        // movimiento(-columnas);
+        // movAnterior = e.key;
       }
       break;
     default:
@@ -150,3 +167,9 @@ const chocar = (head) => {
     return true;
   }
 };
+
+window.setInterval(() => {
+  if (inGame) {
+    movimiento();
+  }
+}, 200);
