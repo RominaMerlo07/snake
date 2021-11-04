@@ -1,10 +1,5 @@
-const scoreService = require('./score.service');
-
-/* const insertScore = async(score) => {
-
-    return await scoreService.insertScore(score);
-}
- */
+const scoreService = require("./score.service");
+const Score = require("./score.entity");
 
 const insertScore = (req, res) => {
     try {
@@ -22,4 +17,16 @@ const insertScore = (req, res) => {
     }
 };
 
-module.exports = { insertScore }; //permie usar el archv en otros
+const getById = async (user) => {
+  return scoreService.getById(user);
+};
+
+const updateScore = async (user, score) => {
+  return scoreService.updateScore(user, score);
+};
+
+const deleteScore = async (user) => {
+  return scoreService.deleteScore(user);
+};
+
+module.exports = { insertScore, getById, deleteScore, updateScore }; //permie usar el archv en otros
