@@ -143,6 +143,7 @@ const chocar = (head) => {
 
     if (container.children[head].classList.contains('bodySnake')) {
         //alert("Game Over!");
+        //llamar al update del sanke pasando usuario y puntaje
         Swal.fire({
             title: '<strong>¡PERDISTE!</strong>',
             imageUrl: 'https://media.istockphoto.com/vectors/rattlesnake-with-dizzy-face-vector-id821741746?b=1&k=6&m=821741746&s=170667a&w=0&h=asBMqYOVHC2mkz9YYRUn8ISRE1CqIj7zphO3kvu0uuc=',
